@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dgq6w5moy1hl2"]
+
+[ext_resource type="Script" uid="uid://4xj78fw4y2yh" path="res://dot.gd" id="1_syhbm"]
+[ext_resource type="Texture2D" uid="uid://1d3j3n0ho8or" path="res://dot.png" id="2_syhbm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_syhbm"]
+radius = 19.026299
+
+[node name="Dot" type="CharacterBody2D" unique_id=1402598572]
+script = ExtResource("1_syhbm")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=387134331]
+position = Vector2(-9.536743e-07, 0)
+scale = Vector2(0.38, 0.38000005)
+texture = ExtResource("2_syhbm")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=188921001]
+shape = SubResource("CircleShape2D_syhbm")

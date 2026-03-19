@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://c4sv72nqkmyfg"]
+
+[ext_resource type="Script" uid="uid://7bua330qorpq" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dgq6w5moy1hl2" path="res://dot.tscn" id="2_0xm2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
+size = Vector2(1648, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(79, 1545)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(1487, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(21.049988, 1469)
+
+[sub_resource type="Gradient" id="Gradient_7dm0k"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.030120483, 0.13253012, 0.21084337, 0.22891566, 0.25301206, 0.37349397, 0.45783132, 0.56626505, 0.6204819, 0.7108434, 0.8192771, 0.90361446)
+colors = PackedColorArray(0.51145804, 0.581183, 0.9999966, 1, 0.6101666, 0.6756181, 1, 1, 0.44020453, 0.6603409, 0.6222222, 1, 1, 1, 0, 1, 0, 0.5647059, 0.22352941, 1, 0, 0.6509804, 0, 1, 0.42307693, 0.7986425, 0.1509804, 1, 0.5769231, 0.85233784, 0.20588236, 1, 0.800905, 0.93051195, 0.28581315, 1, 1, 1, 0.35686275, 1, 0.99999946, 0.8289429, 0.40646824, 1, 1, 0.4392157, 0.007843138, 1)
+metadata/_snap_count = 2
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ig7tw"]
+noise_type = 3
+seed = 305
+frequency = 0.028
+fractal_octaves = 10
+domain_warp_enabled = true
+domain_warp_amplitude = 28.39
+domain_warp_frequency = 2.62
+domain_warp_fractal_octaves = 10
+domain_warp_fractal_lacunarity = 7.835
+domain_warp_fractal_gain = 1.855
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0xm2m"]
+noise = SubResource("FastNoiseLite_ig7tw")
+color_ramp = SubResource("Gradient_7dm0k")
+
+[node name="main" type="Node2D" unique_id=1737655186]
+script = ExtResource("1_ig7tw")
+dot_scene = ExtResource("2_0xm2m")
+seed = 305
+
+[node name="Camera" type="Camera2D" parent="." unique_id=2035217462]
+
+[node name="background" type="Node2D" parent="." unique_id=976433642]
+
+[node name="Borders" type="StaticBody2D" parent="background" unique_id=144662341]
+
+[node name="Collision4" type="CollisionShape2D" parent="background/Borders" unique_id=763094702]
+position = Vector2(100, 727)
+shape = SubResource("RectangleShape2D_7mycd")
+
+[node name="Collision3" type="CollisionShape2D" parent="background/Borders" unique_id=496562992]
+position = Vector2(756.5, -47.5)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="Collision2" type="CollisionShape2D" parent="background/Borders" unique_id=1873818498]
+position = Vector2(-7.5, -726.5)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Collision" type="CollisionShape2D" parent="background/Borders" unique_id=195851374]
+position = Vector2(-726.525, 7.5)
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="Ground" type="Sprite2D" parent="background" unique_id=236908623]
+scale = Vector2(2.8, 2.8)
+texture = SubResource("NoiseTexture2D_0xm2m")
