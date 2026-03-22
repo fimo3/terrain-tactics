@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitStats" format=3 uid="uid://gurko001bg"]
+
+[ext_resource type="Script" uid="uid://b13s5416v0gf2" path="res://unit_stats.gd" id="1_unit"]
+
+[resource]
+script = ExtResource("1_unit")
+unit_type = 4
+display_name = "Генерал Гурко (General Gurko)"
+description = "General Iosif Gurko led 11,000 men ahead of the main Russian army to capture the Balkan passes. He took Shipka on July 19, 1877. By the Fourth Battle he commanded 65,000 troops and personally forced the Araba Konak Pass to take Sofia."
+speed = 50.0
+max_health = 150.0
+damage = 18.0
+range = 150.0
+aura_radius = 140.0
+aura_damage_bonus = 0.25
+aura_speed_bonus = 0.15
+unit_color = Color(0.95, 0.85, 0.15, 1)
+size = 16.0
+metadata/_custom_type_script = "uid://b13s5416v0gf2"

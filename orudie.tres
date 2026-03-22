@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitStats" format=3 uid="uid://orudie001bg"]
+
+[ext_resource type="Script" uid="uid://b13s5416v0gf2" path="res://unit_stats.gd" id="1_unit"]
+
+[resource]
+script = ExtResource("1_unit")
+unit_type = 2
+display_name = "4th Rifle Brigade (Radetsky)"
+description = "General Fyodor Radetsky's 4th Rifle Brigade. Arrived as critical reinforcement on August 23 when the Russians on Central Hill began to retreat — their arrival rallied the line and repulsed all Ottoman attacks."
+speed = 25.0
+move_points = 1
+max_health = 90.0
+damage = 55.0
+range = 280.0
+attack_cooldown = 3.5
+projectile_speed = 400.0
+projectile_size = 10.0
+aoe_radius = 70.0
+unit_color = Color(0.08, 0.3, 0.58, 1)
+size = 18.0
+metadata/_custom_type_script = "uid://b13s5416v0gf2"

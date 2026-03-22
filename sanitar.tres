@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitStats" format=3 uid="uid://sanitar001bg"]
+
+[ext_resource type="Script" uid="uid://b13s5416v0gf2" path="res://unit_stats.gd" id="1_unit"]
+
+[resource]
+script = ExtResource("1_unit")
+unit_type = 3
+display_name = "Сkobelev's Column (Skobelev)"
+description = "General Mikhail Skobelev led one of two columns in the Fourth Battle (Jan 1878). When Mirsky attacked unsupported on Jan 8, Skobelev's column pushed forward on Jan 9 to break the Ottoman encirclement."
+max_health = 70.0
+damage = 4.0
+range = 80.0
+attack_cooldown = 3.0
+projectile_speed = 0.0
+projectile_size = 0.0
+heal_per_second = 8.0
+heal_radius = 80.0
+unit_color = Color(0.35, 0.75, 0.9, 1)
+size = 11.0
+metadata/_custom_type_script = "uid://b13s5416v0gf2"

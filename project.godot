@@ -15,6 +15,12 @@ run/main_scene="uid://c4sv72nqkmyfg"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*uid://c8bmkyi7diec4"
+TerrainManager="*uid://i45mupmqf5pp"
+OttomanAI="*uid://d2r6oleq2fen4"
+
 [input]
 
 mouse_left={

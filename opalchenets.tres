@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitStats" format=3 uid="uid://frsj7we34urw"]
+
+[ext_resource type="Script" uid="uid://b13s5416v0gf2" path="res://unit_stats.gd" id="1_unit"]
+
+[resource]
+script = ExtResource("1_unit")
+display_name = "Опълченец (Opalchenets)"
+description = "Bulgarian volunteer. At the Second Battle, 5,000 opalchentsi held the Eagle's Nest against 30,000 Ottomans — running out of ammunition, they threw rocks and the bodies of fallen comrades."
+speed = 55.0
+max_health = 120.0
+damage = 15.0
+range = 200.0
+attack_cooldown = 1.8
+projectile_speed = 320.0
+projectile_size = 4.0
+high_ground_defense_bonus = 0.2
+unit_color = Color(0.22, 0.45, 0.78, 1)
+size = 14.0
+metadata/_custom_type_script = "uid://b13s5416v0gf2"

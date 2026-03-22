@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitStats" format=3 uid="uid://dexv5elnq7jnr"]
+
+[ext_resource type="Script" uid="uid://b13s5416v0gf2" path="res://unit_stats.gd" id="1_unit"]
+
+[resource]
+script = ExtResource("1_unit")
+unit_type = 4
+faction = 1
+display_name = "Süleyman Hüsnü Paşa"
+description = "Commanded 30,000 Ottomans in the Second and Third Battles. Lost ~10,000 men at Shipka. Later court-martialed for colossal failure — initially sentenced to death, commuted by Sultan Abdulhamid II to exile in Baghdad."
+speed = 55.0
+max_health = 130.0
+damage = 22.0
+range = 160.0
+attack_cooldown = 1.4
+aura_radius = 130.0
+aura_damage_bonus = 0.3
+aura_attack_speed_bonus = 0.1
+unit_color = Color(0.88, 0.72, 0.08, 1)
+size = 16.0
+metadata/_custom_type_script = "uid://b13s5416v0gf2"

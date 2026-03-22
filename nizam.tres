@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitStats" format=3 uid="uid://ni0am001ot"]
+
+[ext_resource type="Script" uid="uid://b13s5416v0gf2" path="res://unit_stats.gd" id="1_unit"]
+
+[resource]
+script = ExtResource("1_unit")
+faction = 1
+display_name = "Низам — Rauf Pasha's Infantry"
+description = "Ottoman regular infantry under Rauf Pasha, who commanded the First through Third Battles. 15 of his battalions joined Süleyman until the army reached 30,000 men determined to retake the pass."
+damage = 18.0
+range = 190.0
+attack_cooldown = 4.0
+projectile_speed = 320.0
+projectile_size = 4.0
+burst_count = 3
+burst_interval = 0.25
+unit_color = Color(0.72, 0.18, 0.18, 1)
+size = 14.0
+metadata/_custom_type_script = "uid://b13s5416v0gf2"

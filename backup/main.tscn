@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://7bua330qorpq" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dgq6w5moy1hl2" path="res://dot.tscn" id="2_0xm2m"]
 [ext_resource type="Resource" uid="uid://frsj7we34urw" path="res://opalchenets.tres" id="3_dg77c"]
-[ext_resource type="PackedScene" path="res://projectile.tscn" id="3_w48qg"]
-[ext_resource type="PackedScene" uid="uid://bh3tcc5qx834g" path="res://front_line.tscn" id="3_ycdy4"]
 [ext_resource type="Resource" uid="uid://ka0ak001bg" path="res://kazak.tres" id="4_ycdy4"]
 [ext_resource type="Resource" uid="uid://orudie001bg" path="res://orudie.tres" id="5_w48qg"]
 [ext_resource type="Resource" uid="uid://sanitar001bg" path="res://sanitar.tres" id="6_vivmo"]
@@ -14,6 +12,18 @@
 [ext_resource type="Resource" uid="uid://top001ot" path="res://top.tres" id="10_cegan"]
 [ext_resource type="Resource" uid="uid://hakim001ot" path="res://hakim.tres" id="11_82xsv"]
 [ext_resource type="Resource" uid="uid://dexv5elnq7jnr" path="res://suleiman.tres" id="12_getpj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
+size = Vector2(1648, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(79, 1545)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(1487, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(21.049988, 1469)
 
 [sub_resource type="Gradient" id="Gradient_7dm0k"]
 interpolation_mode = 1
@@ -37,25 +47,13 @@ domain_warp_fractal_gain = 1.855
 noise = SubResource("FastNoiseLite_ig7tw")
 color_ramp = SubResource("Gradient_7dm0k")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
-size = Vector2(1648, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
-size = Vector2(79, 1545)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
-size = Vector2(1487, 19)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
-size = Vector2(21.049988, 1469)
-
 [node name="main" type="Node2D" unique_id=1737655186]
 script = ExtResource("1_ig7tw")
 dot_scene = ExtResource("2_0xm2m")
-projectile_scene = ExtResource("3_w48qg")
-front_line_scene = ExtResource("3_ycdy4")
-bg_spawn_points = Array[Vector2]([])
-ot_spawn_points = Array[Vector2]([])
+shipka_zone_position = null
+shipka_zone_size = null
+bg_spawn_points = null
+ot_spawn_points = null
 res_opalchenets = ExtResource("3_dg77c")
 res_kazak = ExtResource("4_ycdy4")
 res_orudie = ExtResource("5_w48qg")
@@ -70,11 +68,6 @@ res_suleiman = ExtResource("12_getpj")
 [node name="Camera" type="Camera2D" parent="." unique_id=2035217462]
 
 [node name="background" type="Node2D" parent="." unique_id=976433642]
-z_index = -451
-
-[node name="Ground" type="Sprite2D" parent="background" unique_id=236908623]
-scale = Vector2(2.8, 2.8)
-texture = SubResource("NoiseTexture2D_0xm2m")
 
 [node name="Borders" type="StaticBody2D" parent="background" unique_id=144662341]
 
@@ -93,3 +86,7 @@ shape = SubResource("RectangleShape2D_1bvp3")
 [node name="Collision" type="CollisionShape2D" parent="background/Borders" unique_id=195851374]
 position = Vector2(-726.525, 7.5)
 shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="Ground" type="Sprite2D" parent="background" unique_id=236908623]
+scale = Vector2(2.8, 2.8)
+texture = SubResource("NoiseTexture2D_0xm2m")

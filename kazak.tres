@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="UnitStats" format=3 uid="uid://ka0ak001bg"]
+
+[ext_resource type="Script" uid="uid://b13s5416v0gf2" path="res://unit_stats.gd" id="1_unit"]
+
+[resource]
+script = ExtResource("1_unit")
+unit_type = 1
+display_name = "Казак (Cossack)"
+description = "Russian Cossack cavalry under Mirsky. Used in the First Battle — Mirsky led 2,000 men of the 36th Orlovsky Infantry plus Cossacks in the opening assault on the pass on July 17, 1877."
+speed = 120.0
+move_points = 5
+max_health = 80.0
+damage = 25.0
+range = 60.0
+attack_cooldown = 1.2
+projectile_speed = 0.0
+projectile_size = 0.0
+charge_damage_multiplier = 1.5
+unit_color = Color(0.18, 0.62, 0.85, 1)
+size = 13.0
+metadata/_custom_type_script = "uid://b13s5416v0gf2"

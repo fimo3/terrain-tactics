@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bh3tcc5qx834g"]
+
+[ext_resource type="Script" uid="uid://dgvibhyw5nlch" path="res://front_line.gd" id="1_fl"]
+
+[node name="FrontLine" type="Node2D" unique_id=1579752688]
+z_index = 363
+script = ExtResource("1_fl")

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitStats" format=3 uid="uid://top001ot"]
+
+[ext_resource type="Script" uid="uid://b13s5416v0gf2" path="res://unit_stats.gd" id="1_unit"]
+
+[resource]
+script = ExtResource("1_unit")
+unit_type = 2
+faction = 1
+display_name = "Top — Ottoman Artillery"
+description = "On August 21, Ottoman forces bombarded St. Nicholas (Peak Stoletov) before the infantry assault. On August 23, they moved artillery up the mountainside to bombard all Russian positions simultaneously."
+speed = 30.0
+move_points = 2
+max_health = 85.0
+damage = 48.0
+range = 260.0
+attack_cooldown = 2.5
+projectile_speed = 380.0
+projectile_size = 9.0
+aoe_radius = 50.0
+unit_color = Color(0.55, 0.08, 0.08, 1)
+size = 18.0
+metadata/_custom_type_script = "uid://b13s5416v0gf2"

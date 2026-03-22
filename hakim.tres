@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="UnitStats" format=3 uid="uid://hakim001ot"]
+
+[ext_resource type="Script" uid="uid://b13s5416v0gf2" path="res://unit_stats.gd" id="1_unit"]
+
+[resource]
+script = ExtResource("1_unit")
+unit_type = 3
+faction = 1
+display_name = "Mirski's Column (Veysel Pasha)"
+description = "Veysel Pasha commanded the Ottoman garrison at the Fourth Battle (Jan 5–9, 1878). Completely surrounded by Skobelev and Mirsky, his remaining forces surrendered on January 9 — a total of 36,000 captured."
+speed = 65.0
+max_health = 65.0
+damage = 4.0
+range = 65.0
+attack_cooldown = 3.0
+projectile_speed = 0.0
+projectile_size = 0.0
+heal_per_second = 10.0
+heal_radius = 65.0
+unit_color = Color(0.9, 0.4, 0.4, 1)
+size = 11.0
+metadata/_custom_type_script = "uid://b13s5416v0gf2"
