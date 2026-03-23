@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 GameManager="*uid://c8bmkyi7diec4"
 TerrainManager="*uid://i45mupmqf5pp"
 OttomanAI="*uid://d2r6oleq2fen4"
+BattleStageManager="*res://battle_stage_manager.gd"
 
 [input]
 

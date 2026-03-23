@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://hud.gd" id="1_hud"]
 
 [sub_resource type="StyleBoxFlat" id="SB_top"]
-bg_color = Color(0.05, 0.05, 0.08, 0.91)
+bg_color = Color(0.04, 0.04, 0.07, 0.92)
 border_width_bottom = 1
-border_color = Color(0.18, 0.18, 0.25, 1.0)
+border_color = Color(0.18, 0.18, 0.26, 1.0)
 corner_radius_bottom_left = 8
 corner_radius_bottom_right = 8
 
@@ -20,6 +20,18 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_left = 8
 corner_radius_bottom_right = 8
+
+[sub_resource type="StyleBoxFlat" id="SB_banner"]
+bg_color = Color(0.04, 0.04, 0.10, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.55, 0.45, 0.10, 1.0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_left = 10
+corner_radius_bottom_right = 10
 
 [sub_resource type="StyleBoxFlat" id="SB_go"]
 bg_color = Color(0.04, 0.04, 0.07, 0.97)
@@ -45,8 +57,13 @@ corner_radius_top_right = 6
 corner_radius_bottom_left = 6
 corner_radius_bottom_right = 6
 
+[sub_resource type="StyleBoxFlat" id="SB_sep"]
+bg_color = Color(0.22, 0.22, 0.30, 0.40)
+
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_hud")
+
+## ── Top bar ───────────────────────────────────────────────────────────────────
 
 [node name="Top" type="PanelContainer" parent="."]
 anchors_preset = 5
@@ -54,7 +71,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 0.0
-offset_bottom = 72
+offset_bottom = 96
 theme_override_styles/panel = SubResource("SB_top")
 
 [node name="M" type="MarginContainer" parent="Top"]
@@ -66,40 +83,57 @@ theme_override_constants/margin_bottom = 7
 
 [node name="Row" type="HBoxContainer" parent="Top/M"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 16
 
 [node name="BGBox" type="VBoxContainer" parent="Top/M/Row"]
 layout_mode = 2
-theme_override_constants/separation = 1
+theme_override_constants/separation = 2
 
 [node name="Units" type="Label" parent="Top/M/Row/BGBox"]
 layout_mode = 2
-text = "5 units"
-theme_override_font_sizes/font_size = 14
-theme_override_colors/font_color = Color(0.45, 0.78, 0.45, 1.0)
+text = "5 units  (100% strength)"
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.42, 0.78, 0.42, 1.0)
 
 [node name="Troops" type="Label" parent="Top/M/Row/BGBox"]
 layout_mode = 2
-text = "≈ 5,000 troops"
-theme_override_font_sizes/font_size = 11
-theme_override_colors/font_color = Color(0.45, 0.78, 0.45, 0.60)
+text = "≈ 5,000 troops  |  lost: 0"
+theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.42, 0.78, 0.42, 0.55)
 
 [node name="Flag" type="Label" parent="Top/M/Row/BGBox"]
 layout_mode = 2
 text = "Russia & Opalchentsi"
-theme_override_font_sizes/font_size = 10
-theme_override_colors/font_color = Color(0.45, 0.78, 0.45, 0.45)
+theme_override_font_sizes/font_size = 9
+theme_override_colors/font_color = Color(0.42, 0.78, 0.42, 0.38)
+
+[node name="StageBox" type="VBoxContainer" parent="Top/M/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="StageLbl" type="Label" parent="Top/M/Row/StageBox"]
+layout_mode = 2
+text = "Stage 1: 1st Battle  •  Jul 1877  (next in 60s)"
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.92, 0.84, 0.40, 1.0)
+horizontal_alignment = 1
+
+[node name="StageBar" type="ProgressBar" parent="Top/M/Row/StageBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 7)
+value = 0.0
+show_percentage = false
 
 [node name="PassBox" type="VBoxContainer" parent="Top/M/Row"]
 layout_mode = 2
-size_flags_horizontal = 3
 theme_override_constants/separation = 3
 
 [node name="HoldLbl" type="Label" parent="Top/M/Row/PassBox"]
 layout_mode = 2
-text = "Eagle's Nest  0s / 60s"
-theme_override_font_sizes/font_size = 12
-theme_override_colors/font_color = Color(0.75, 0.90, 0.55, 1.0)
+text = "Eagle's Nest  0s  (60s to win)"
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.72, 0.90, 0.52, 1.0)
 horizontal_alignment = 1
 
 [node name="HoldBar" type="ProgressBar" parent="Top/M/Row/PassBox"]
@@ -110,9 +144,9 @@ show_percentage = false
 
 [node name="Sub" type="Label" parent="Top/M/Row/PassBox"]
 layout_mode = 2
-text = "Hold the pass to win"
-theme_override_font_sizes/font_size = 10
-theme_override_colors/font_color = Color(0.50, 0.62, 0.42, 0.55)
+text = "Keep Ottomans out of Eagle's Nest"
+theme_override_font_sizes/font_size = 9
+theme_override_colors/font_color = Color(0.50, 0.62, 0.42, 0.48)
 horizontal_alignment = 1
 
 [node name="AIBox" type="VBoxContainer" parent="Top/M/Row"]
@@ -121,37 +155,39 @@ theme_override_constants/separation = 2
 
 [node name="AILbl" type="Label" parent="Top/M/Row/AIBox"]
 layout_mode = 2
-text = "Enemy AI"
-theme_override_font_sizes/font_size = 10
-theme_override_colors/font_color = Color(0.55, 0.45, 0.45, 0.70)
+text = "Ottoman AI"
+theme_override_font_sizes/font_size = 9
+theme_override_colors/font_color = Color(0.55, 0.45, 0.45, 0.60)
 
 [node name="PhaseLbl" type="Label" parent="Top/M/Row/AIBox"]
 layout_mode = 2
 text = "Artillery prep"
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 12
 theme_override_colors/font_color = Color(0.95, 0.76, 0.06, 1.0)
 
 [node name="OTBox" type="VBoxContainer" parent="Top/M/Row"]
 layout_mode = 2
-theme_override_constants/separation = 1
+theme_override_constants/separation = 2
 
 [node name="Units" type="Label" parent="Top/M/Row/OTBox"]
 layout_mode = 2
-text = "5 units"
-theme_override_font_sizes/font_size = 14
+text = "5 units  (100% strength)"
+theme_override_font_sizes/font_size = 12
 theme_override_colors/font_color = Color(0.90, 0.40, 0.40, 1.0)
 
 [node name="Troops" type="Label" parent="Top/M/Row/OTBox"]
 layout_mode = 2
-text = "≈ 5,000 troops"
-theme_override_font_sizes/font_size = 11
-theme_override_colors/font_color = Color(0.90, 0.40, 0.40, 0.60)
+text = "≈ 5,000 troops  |  lost: 0"
+theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.90, 0.40, 0.40, 0.55)
 
 [node name="Flag" type="Label" parent="Top/M/Row/OTBox"]
 layout_mode = 2
 text = "Ottoman Empire"
-theme_override_font_sizes/font_size = 10
-theme_override_colors/font_color = Color(0.90, 0.40, 0.40, 0.45)
+theme_override_font_sizes/font_size = 9
+theme_override_colors/font_color = Color(0.90, 0.40, 0.40, 0.38)
+
+## ── Unit panel (bottom-left) ──────────────────────────────────────────────────
 
 [node name="UnitPanel" type="PanelContainer" parent="."]
 anchors_preset = 7
@@ -160,8 +196,8 @@ anchor_top = 1.0
 anchor_right = 0.0
 anchor_bottom = 1.0
 offset_left = 12
-offset_top = -330
-offset_right = 296
+offset_top = -390
+offset_right = 315
 offset_bottom = -12
 theme_override_styles/panel = SubResource("SB_panel")
 visible = false
@@ -175,7 +211,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Col" type="VBoxContainer" parent="UnitPanel/M"]
 layout_mode = 2
-theme_override_constants/separation = 5
+theme_override_constants/separation = 4
 
 [node name="Name" type="Label" parent="UnitPanel/M/Col"]
 layout_mode = 2
@@ -187,7 +223,7 @@ autowrap_mode = 2
 [node name="Role" type="Label" parent="UnitPanel/M/Col"]
 layout_mode = 2
 text = "infantry"
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 11
 theme_override_colors/font_color = Color(0.55, 0.55, 0.65, 1.0)
 
 [node name="BehaviourLbl" type="Label" parent="UnitPanel/M/Col"]
@@ -198,9 +234,10 @@ theme_override_colors/font_color = Color(0.5, 0.9, 0.5, 1.0)
 
 [node name="TerrainLbl" type="Label" parent="UnitPanel/M/Col"]
 layout_mode = 2
-text = "Open slope  —  spd 100%  def 100%"
+text = "Open slope  •  dmg +0%  spd +0%  fire +0%"
 theme_override_font_sizes/font_size = 11
 theme_override_colors/font_color = Color(0.65, 0.80, 0.55, 1.0)
+autowrap_mode = 2
 
 [node name="HPRow" type="HBoxContainer" parent="UnitPanel/M/Col"]
 layout_mode = 2
@@ -243,11 +280,98 @@ theme_override_font_sizes/font_size = 11
 theme_override_colors/font_color = Color(0.95, 0.84, 0.42, 1.0)
 autowrap_mode = 2
 
+[node name="Sep" type="PanelContainer" parent="UnitPanel/M/Col"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 1)
+theme_override_styles/panel = SubResource("SB_sep")
+
+[node name="DescLbl" type="Label" parent="UnitPanel/M/Col"]
+layout_mode = 2
+text = ""
+theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.52, 0.54, 0.62, 1.0)
+autowrap_mode = 2
+
 [node name="TroopsLbl" type="Label" parent="UnitPanel/M/Col"]
 layout_mode = 2
 text = "Represents ≈ 1,000 soldiers"
+theme_override_font_sizes/font_size = 10
+theme_override_colors/font_color = Color(0.38, 0.38, 0.45, 1.0)
+
+## ── Stage banner (centred) ────────────────────────────────────────────────────
+
+[node name="StageBanner" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -340
+offset_top = 105
+offset_right = 340
+offset_bottom = 240
+theme_override_styles/panel = SubResource("SB_banner")
+visible = false
+
+[node name="M" type="MarginContainer" parent="StageBanner"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_bottom = 14
+
+[node name="Col" type="VBoxContainer" parent="StageBanner/M"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="StageBanner/M/Col"]
+layout_mode = 2
+text = "⚔  Second Battle — August 21–26, 1877"
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(1.0, 0.90, 0.35, 1.0)
+horizontal_alignment = 1
+
+[node name="Date" type="Label" parent="StageBanner/M/Col"]
+layout_mode = 2
+text = "August 1877"
 theme_override_font_sizes/font_size = 11
-theme_override_colors/font_color = Color(0.42, 0.42, 0.48, 1.0)
+theme_override_colors/font_color = Color(0.70, 0.70, 0.80, 0.80)
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="StageBanner/M/Col"]
+layout_mode = 2
+text = ""
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.85, 0.85, 0.90, 0.90)
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Strengths" type="Label" parent="StageBanner/M/Col"]
+layout_mode = 2
+text = ""
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.60, 0.75, 0.60, 0.85)
+horizontal_alignment = 1
+
+## ── Reinforcement toast ───────────────────────────────────────────────────────
+
+[node name="ToastLbl" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -300
+offset_top = 248
+offset_right = 300
+offset_bottom = 272
+horizontal_alignment = 1
+text = "★ 4th Rifle Brigade — Radetsky saves Central Hill!"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(1.0, 0.92, 0.30, 1.0)
+visible = false
+
+## ── Scale / hint labels ───────────────────────────────────────────────────────
 
 [node name="ScaleLbl" type="Label" parent="."]
 anchors_preset = 8
@@ -255,14 +379,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -120
+offset_left = -130
 offset_top = -26
-offset_right = 120
+offset_right = 130
 offset_bottom = -8
 horizontal_alignment = 1
-text = "1 dot  =  1,000 soldiers"
+text = "1 dot  =  ~1,000 soldiers"
 theme_override_font_sizes/font_size = 12
-theme_override_colors/font_color = Color(0.50, 0.50, 0.55, 0.65)
+theme_override_colors/font_color = Color(0.45, 0.45, 0.50, 0.55)
 
 [node name="HintLbl" type="Label" parent="."]
 anchors_preset = 10
@@ -270,14 +394,16 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -560
+offset_left = -660
 offset_top = -26
 offset_right = -12
 offset_bottom = -8
 horizontal_alignment = 2
-text = "Left-click: select your unit   Right-click: move / attack   Tab: cycle units   Scroll: zoom"
+text = "Left-click: select unit   Right-click: move/attack   Tab: cycle   Space: focus   Scroll: zoom   MMB: pan"
 theme_override_font_sizes/font_size = 11
-theme_override_colors/font_color = Color(0.38, 0.38, 0.44, 0.65)
+theme_override_colors/font_color = Color(0.35, 0.35, 0.40, 0.55)
+
+## ── Game over panel ───────────────────────────────────────────────────────────
 
 [node name="GameOver" type="PanelContainer" parent="."]
 anchors_preset = 8
@@ -285,29 +411,29 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250
-offset_top = -180
-offset_right = 250
-offset_bottom = 180
+offset_left = -290
+offset_top = -205
+offset_right = 290
+offset_bottom = 205
 theme_override_styles/panel = SubResource("SB_go")
 visible = false
 
 [node name="M" type="MarginContainer" parent="GameOver"]
 layout_mode = 2
-theme_override_constants/margin_left = 28
-theme_override_constants/margin_right = 28
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_bottom = 24
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_bottom = 26
 
 [node name="Col" type="VBoxContainer" parent="GameOver/M"]
 layout_mode = 2
 alignment = 1
-theme_override_constants/separation = 14
+theme_override_constants/separation = 16
 
 [node name="Result" type="Label" parent="GameOver/M/Col"]
 layout_mode = 2
 text = "Game Over"
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 28
 theme_override_colors/font_color = Color(1.0, 1.0, 1.0, 1.0)
 horizontal_alignment = 1
 
@@ -322,13 +448,13 @@ autowrap_mode = 2
 [node name="Hist" type="Label" parent="GameOver/M/Col"]
 layout_mode = 2
 text = ""
-theme_override_font_sizes/font_size = 12
-theme_override_colors/font_color = Color(0.52, 0.52, 0.60, 1.0)
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.50, 0.50, 0.58, 1.0)
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Restart" type="Button" parent="GameOver/M/Col"]
 layout_mode = 2
 text = "Play Again"
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("SB_btn")
